@@ -1,0 +1,18 @@
+# Lista de fotografii pentru pagina Galerie
+# O poza pe linie, exact numele fisierului din folderul photos/
+# Adauga o linie noua pentru fiecare poza in plus, oricate vrei.
+# Sterge o linie ca sa scoti o poza din galerie.
+# Liniile care incep cu # sunt ignorate (comentarii, ca aceasta).
+
+galerie-01.jpg
+galerie-02.jpg
+galerie-03.jpg
+galerie-04.jpg
+galerie-05.jpg
+galerie-06.jpg
+galerie-07.jpg
+galerie-08.jpg
+galerie-09.jpg
+galerie-10.jpg
+galerie-11.jpg
+galerie-12.jpg

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Louise Events</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <a class="logotype" href="index.html"><img src="../photos/louise-events-logo.jpg" alt="Louise Events" class="logo-mark"></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ceremonies.html">Ceremonies</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch"><a href="../contact.html">RO</a><span>/</span><a href="contact.html">EN</a></div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap grid grid-2">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h1>Let's talk</h1>
+      <p>Tell me a little about you and your wedding date — I'll get back to you shortly.</p>
+      <p class="contact-line"><strong>Email:</strong> <a href="mailto:luizamartinescu@gmail.com">luizamartinescu@gmail.com</a></p>
+      <p class="contact-line"><strong>Phone:</strong> <a href="tel:+40724396225">0724 396 225</a></p>
+      <p class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/40724396225?text=Hello!%20I%20would%20like%20to%20find%20out%20more%20about%20Louise%20Events%20ceremonies." target="_blank" rel="noopener">Message me directly</a></p>
+      <p class="contact-line"><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61591984422690" target="_blank" rel="noopener">@louiseevents</a></p>
+    </div>
+    <div class="photo ratio-tall" data-slot="contact-poza.jpg" style="background-image:url('../photos/contact-poza.jpg'), var(--fallback-grad)"></div>
+  </section>
+
+  <section class="wrap" style="max-width:640px">
+    <!--
+      Note for Luiza:
+      This form sends messages through Web3Forms (free, no server needed).
+      To make it work, you need an access key:
+        1. Go to https://web3forms.com
+        2. Enter your email (luizamartinescu@gmail.com) and click "Create Access Key"
+        3. You get the key instantly by email — no account needed, it's free
+        4. Copy the key and replace "ACCES_KEY_AICI" below, in the hidden "access_key" input
+      Until you add the real key, the form will not send messages.
+    -->
+    <form id="contact-form">
+      <input type="hidden" name="access_key" value="ACCES_KEY_AICI">
+      <input type="hidden" name="subject" value="New message from louiseevents.ro">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div style="margin-bottom:1rem">
+        <label for="name" style="display:block;font-size:.78rem;letter-spacing:.08em;margin-bottom:.3rem">Name</label>
+        <input id="name" name="name" type="text" required style="width:100%;padding:.7rem;border:1px solid rgba(92,42,56,.25);border-radius:2px;font-family:inherit;background:var(--ivory-2)">
+      </div>
+      <div style="margin-bottom:1rem">
+        <label for="email" style="display:block;font-size:.78rem;letter-spacing:.08em;margin-bottom:.3rem">Email</label>
+        <input id="email" name="email" type="email" required style="width:100%;padding:.7rem;border:1px solid rgba(92,42,56,.25);border-radius:2px;font-family:inherit;background:var(--ivory-2)">
+      </div>
+      <div style="margin-bottom:1rem">
+        <label for="message" style="display:block;font-size:.78rem;letter-spacing:.08em;margin-bottom:.3rem">Message</label>
+        <textarea id="message" name="message" rows="5" required style="width:100%;padding:.7rem;border:1px solid rgba(92,42,56,.25);border-radius:2px;font-family:inherit;background:var(--ivory-2)"></textarea>
+      </div>
+      <button class="btn" type="submit" style="border:none;cursor:pointer">Send</button>
+      <p id="form-result" class="form-result"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site">
+  <img src="../photos/louise-events-logo.jpg" alt="Louise Events" class="logo-mark">
+  <span class="logotype">Louise Events</span>
+  <p>Wedding ceremonies, wherever you imagine your story.</p>
+  <p class="contact-line"><a href="mailto:luizamartinescu@gmail.com">luizamartinescu@gmail.com</a> · <a href="https://www.facebook.com/profile.php?id=61591984422690" target="_blank" rel="noopener">@louiseevents</a></p>
+  <p>© 2026 Louise Events. All rights reserved.</p>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script src="../js/contact-form.js"></script>
+<a class="whatsapp-float" href="https://wa.me/40724396225?text=Hello!%20I%20would%20like%20to%20find%20out%20more%20about%20Louise%20Events%20ceremonies." target="_blank" rel="noopener" aria-label="Message on WhatsApp"><svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></a>
+</body>
+</html>
