@@ -41,18 +41,8 @@
   </section>
 
   <section class="wrap" style="max-width:640px">
-    <!--
-      Notă pentru Luiza:
-      Formularul trimite mesajele prin Web3Forms (gratuit, fără server propriu).
-      Ca să funcționeze, ai nevoie de o cheie de acces (access key):
-        1. Mergi pe https://web3forms.com
-        2. Introdu adresa ta de email (luizamartinescu@gmail.com) și apasă "Create Access Key"
-        3. Primești cheia instant pe email — nu trebuie cont, e gratuit
-        4. Copiază cheia și înlocuiește "ACCES_KEY_AICI" mai jos, în input-ul hidden "access_key"
-      Până pui cheia reală, formularul nu va trimite mesaje.
-    -->
-    <form id="contact-form">
-      <input type="hidden" name="access_key" value="ACCES_KEY_AICI">
+    <form id="contact-form" data-success-redirect="multumesc.html">
+      <input type="hidden" name="access_key" value="77bf0958-1f37-47b6-8240-970b3ee26822">
       <input type="hidden" name="subject" value="Mesaj nou de pe louiseevents.ro">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div style="margin-bottom:1rem">

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var result = document.getElementById('form-result');
   var submitBtn = form.querySelector('button[type="submit"]');
   var lang = document.documentElement.lang === 'en' ? 'en' : 'ro';
+  var redirectTo = form.getAttribute('data-success-redirect');
 
   var messages = {
     ro: {
@@ -36,19 +37,22 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.success) {
-          result.textContent = messages[lang].ok;
-          result.setAttribute('data-state', 'ok');
           form.reset();
+          if (redirectTo) {
+            window.location.href = redirectTo;
+          } else {
+            result.textContent = messages[lang].ok;
+            result.setAttribute('data-state', 'ok');
+          }
         } else {
           result.textContent = messages[lang].err;
           result.setAttribute('data-state', 'err');
+          if (submitBtn) submitBtn.disabled = false;
         }
       })
       .catch(function () {
         result.textContent = messages[lang].err;
         result.setAttribute('data-state', 'err');
-      })
-      .finally(function () {
         if (submitBtn) submitBtn.disabled = false;
       });
   });
