@@ -200,6 +200,26 @@ section{ padding: clamp(3rem, 7vw, 6rem) 0; }
   text-align:center; margin-top:.6rem; font-size:.85rem; color:var(--ink-60);
 }
 
+[data-full]{ cursor:zoom-in; }
+
+.lightbox-overlay{
+  position:fixed; inset:0; z-index:200;
+  background:rgba(20,14,12,.9);
+  display:flex; align-items:center; justify-content:center;
+  padding:4vh 4vw; cursor:zoom-out;
+  opacity:0; pointer-events:none;
+  transition:opacity .2s ease;
+}
+.lightbox-overlay.open{ opacity:1; pointer-events:auto; }
+.lightbox-overlay img{
+  max-width:100%; max-height:92vh;
+  border-radius:3px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+@media (prefers-reduced-motion: reduce){
+  .lightbox-overlay{ transition:none; }
+}
+
 .btn{
   display:inline-block;
   font-family:'Jost', sans-serif; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase;
