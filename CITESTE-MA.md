@@ -1,91 +1,124 @@
-# Luiza Mirabela — site web (RO implicit + EN)
+# Louise Events — site web (RO implicit + EN)
 
 ## Structură
-- `index.html`, `despre.html`, `ceremonii.html`, `pachete.html`, `galerie.html`, `contact.html` — cele 6 pagini în română, la rădăcină (varianta implicită a site-ului)
-- `en/` — aceleași 6 pagini, în engleză (`en/index.html`, `en/about.html`, etc.)
+- `index.html`, `despre.html`, `ceremonii.html`, `galerie.html`, `contact.html`, `multumesc.html` — cele 5 pagini + pagina de mulțumire, în română, la rădăcină (varianta implicită a site-ului)
+- `en/` — aceleași pagini, în engleză (`en/index.html`, `en/about.html`, `en/ceremonies.html`, `en/gallery.html`, `en/contact.html`, `en/thank-you.html`)
 - `css/style.css` — stilul comun (culori, fonturi, layout)
-- `js/nav.js` — meniul mobil (hamburger)
+- `js/` — meniul mobil, galeria dinamică, formularul de contact, efectul de mărire poze
 - `photos/` — aici pui fotografiile reale
 
-Butonul **RO / EN** e în colțul din dreapta sus al meniului, pe toate paginile — poziția standard pe majoritatea site-urilor.
+Butonul **RO / EN** e în colțul din dreapta sus al meniului, pe toate paginile.
 
-## Cum adaugi fotografiile
+## Ce nume să pui fiecărei poze
 
-### Galeria — acum e dinamică (oricâte poze vrei)
-Pagina Galerie nu mai are casete fixe. În schimb, citește lista de poze
-din fișierul `photos/galerie-lista.txt` — un nume de fișier pe linie.
+De când am scos eticheta care apărea peste poze, referința e lista de
+mai jos. Salvezi fotografia cu **exact numele din tabel**, în folderul
+`photos/`, și apare automat pe site — fără nicio modificare de cod.
 
-Ca să adaugi o poză nouă:
-1. Pune fotografia în `photos/` (ex: `nunta-ana-mihai.jpg`)
-2. Deschide `photos/galerie-lista.txt` și adaugă o linie nouă cu numele ei
-3. Salvează — gata, apare automat în galerie, atât pe pagina RO cât și EN
+### Acasă (`index.html`)
+| Unde apare | Nume fișier |
+|---|---|
+| Poza mare de sus (hero) | `hero-acasa.jpg` |
+| Cele 3 poze mici, sub hero | `acasa-teaser-01.jpg`, `acasa-teaser-02.jpg`, `acasa-teaser-03.jpg` |
+| Poza verticală, lângă „Despre mine" | `acasa-portret.jpg` |
 
-Ca să scoți o poză, șterge linia respectivă din listă (nu trebuie să
-ștergi și fotografia din folder, dacă nu vrei).
+### Despre mine (`despre.html`)
+| Unde apare | Nume fișier |
+|---|---|
+| Portret mare, sus | `despre-portret.jpg` |
+| 3 poze mici, sub biografie | `despre-detaliu-01.jpg`, `despre-detaliu-02.jpg`, `despre-detaliu-03.jpg` |
 
-**Notă tehnică:** lista se încarcă prin JavaScript (`fetch`), ceea ce
-înseamnă că **nu funcționează dacă deschizi fișierul direct, prin
-dublu-click** (browserul blochează citirea altor fișiere de pe disc
-din motive de securitate). Funcționează perfect odată ce site-ul e
-online (Netlify, GitHub Pages etc.), sau local dacă folosești
-extensia **Live Server** din VS Code. Dacă deschizi pagina direct și
-lista nu se încarcă, rămân vizibile cele 12 poze implicite din HTML,
-ca variantă de rezervă.
+### Ceremonii (`ceremonii.html`)
+| Unde apare | Nume fișier |
+|---|---|
+| Poza lată, lângă „Nu știți ce vi se potrivește?" | `pachet-detaliu.jpg` |
+| Mașină disponibilă — Alfa Romeo | `masina-alfa-romeo-spider-1980.jpg` |
+| Mașină disponibilă — Jeep | `masina-jeep-cj7-1986.jpg` |
+| (poți adăuga alte mașini la fel — spune-mi și le pun eu) | — |
 
-### Video — în Galerie și pe Acasă
+### Contact (`contact.html`)
+| Unde apare | Nume fișier |
+|---|---|
+| Poza verticală, lângă formular | `contact-poza.jpg` |
 
-**În Galerie:** exact ca la poze, dar în `photos/galerie-lista.txt` scrii
-o linie care începe cu `video:`, urmată de link-ul de YouTube sau Vimeo:
+### Sigla (peste tot, în meniu și subsol)
+| Unde apare | Nume fișier |
+|---|---|
+| Logo Louise Events | `louise-events-logo.jpg` |
+
+**Notă:** toate numele de mai sus sunt identice pe versiunea engleză
+(`en/`) — aceleași fotografii apar automat și acolo, nu trebuie puse
+de două ori.
+
+Recomandat: fotografii de minim 1600px lățime, format `.jpg`. Până
+pui poza reală, caseta arată un gradient discret — site-ul rămâne
+funcțional și frumos și fără ea.
+
+## Galeria — dinamică, oricâte poze/videouri vrei
+
+Pagina Galerie nu are casete fixe. Citește lista din
+`photos/galerie-lista.txt` — un nume de fișier (sau un video) pe linie.
+
+**Poză nouă:**
+1. Pune fotografia în `photos/` (orice nume, ex: `nunta-ana-mihai.jpg`)
+2. Adaugă o linie nouă cu numele ei în `photos/galerie-lista.txt`
+3. Salvează — apare automat, pe RO și EN deopotrivă
+
+**Video nou:** adaugă o linie care începe cu `video:`, urmată de link
+YouTube sau Vimeo:
 ```
 video:https://www.youtube.com/watch?v=xxxxxxxxxxx
 video:https://vimeo.com/123456789
 ```
-Apare automat în galerie, în mijlocul pozelor, la fel ca oricare altă
-intrare din listă.
 
-**Pe Acasă** (unde sunt caseta mare de sus, cele 3 poze mici, sau
-poza din dreptul „Despre mine"): acolo pozele sunt fixe, nu dintr-o
-listă, deci înlocuirea se face manual, o singură dată, în VS Code.
-Găsești caseta pe care vrei s-o schimbi (arată cam așa):
+Ca să scoți ceva din galerie, ștergi linia respectivă din listă.
+
+**Notă tehnică:** lista se încarcă prin JavaScript, deci **nu
+funcționează dacă deschizi fișierul direct, prin dublu-click**
+(browserul blochează asta din motive de securitate). Funcționează
+perfect odată ce site-ul e online, sau local cu extensia **Live
+Server** din VS Code. Dacă deschizi direct și lista nu se încarcă,
+rămân vizibile cele 12 poze implicite din HTML, ca variantă de rezervă.
+
+**Bonus:** orice poză din Galerie sau de pe pagina Ceremonii (mașinile)
+se mărește la click, pe tot ecranul — apeși oriunde în afara ei, sau
+Esc, ca s-o închizi.
+
+## Video pe Acasă / Despre mine / alte pagini fixe
+
+Acolo pozele sunt fixe, nu dintr-o listă, deci înlocuirea cu un video
+se face manual, o dată, în VS Code. Găsești caseta pe care vrei s-o
+schimbi (arată cam așa, cu numele din tabelul de mai sus):
 ```html
 <div class="photo ratio-hero" data-slot="hero-acasa.jpg" style="background-image:url('photos/hero-acasa.jpg'), var(--fallback-grad)"></div>
 ```
-Și o înlocuiești cu (păstrezi clasa `ratio-...` originală, ca
-dimensiunea să rămână la fel — aici era `ratio-hero`):
+Și o înlocuiești cu (păstrezi clasa `ratio-...` originală — aici era
+`ratio-hero` — ca dimensiunea să rămână la fel):
 ```html
 <div class="video-embed ratio-hero">
   <iframe src="https://www.youtube.com/embed/xxxxxxxxxxx" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
 ```
 Ai nevoie de link-ul de tip **embed**: pe YouTube, apeși Share →
-Embed, și de acolo iei doar codul `xxxxxxxxxxx` din adresă (partea de
-după `/embed/`).
+Embed, și de acolo iei codul din adresă (partea de după `/embed/`).
 
-### Restul paginilor (Acasă, Despre mine, Ceremonii, Pachete, Contact)
-Fiecare casetă de imagine are deja un nume de fișier așteptat, vizibil
-și ca etichetă mică peste imagine (ex: `hero-acasa.jpg`). Salvează
-fotografia cu **exact acel nume** în folderul `photos/` — site-ul o va
-afișa automat, fără nicio modificare de cod.
+## Contact — Web3Forms, WhatsApp, Facebook
 
-Exemple de nume așteptate: `hero-acasa.jpg`, `despre-portret.jpg`,
-`ceremonie-simbolica.jpg`, `galerie-01.jpg` … `galerie-12.jpg`, etc.
-Recomandat: fotografii de minim 1600px lățime, format `.jpg`.
+Formularul de contact trimite mesajele prin **Web3Forms** (cheia de
+acces e deja pusă și funcțională). La succes, vizitatorul e dus
+automat pe pagina de mulțumire (`multumesc.html` / `en/thank-you.html`).
 
-Până pui pozele reale, fiecare casetă arată un gradient discret —
-site-ul rămâne funcțional și frumos și fără ele.
+Buton **WhatsApp** plutitor, jos-dreapta, pe toate paginile — deschide
+direct o conversație cu numărul tău, cu un mesaj pre-completat.
 
-## Ce mai trebuie completat
-În `contact.html` (RO și `en/contact.html`): email, telefon și link
-Instagram sunt momentan valori de test — înlocuiește-le cu cele reale
-(caută `contact@luizamirabela.ro`, `+40 700 000 000`, `instagram.com`).
+Link de **Facebook** (@louiseevents) în subsol și pe pagina Contact.
 
-Formularul de contact folosește `mailto:` (deschide clientul de mail
-al vizitatorului). Pentru trimitere directă, fără mailto, se poate
-conecta gratuit un serviciu precum Formspree sau Web3Forms — e nevoie
-doar de schimbat atributul `action` al formularului.
+Datele de contact curente pe site: `luizamartinescu@gmail.com`,
+`0724 396 225`. Dacă se schimbă vreodată, caută-le în fișiere (Ctrl+Shift+F
+în VS Code) și le înlocuiești peste tot dintr-o dată.
 
 ## Cum îl publici
-Cel mai simplu: trage folderul întreg pe **app.netlify.com/drop**
-(gratuit, fără cod) sau încarcă-l pe orice hosting obișnuit prin FTP.
-Punctul de intrare este `index.html` la rădăcină — site-ul se deschide
-direct în română, cu opțiunea de a comuta pe engleză din meniu.
+
+Site-ul e pe GitHub, conectat la Netlify — orice modificare pe care o
+încarci prin **GitHub Desktop** (Commit → Push) se publică automat pe
+`louiseevents.ro` în câteva secunde, fără alt pas.
