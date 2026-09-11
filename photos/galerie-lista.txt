@@ -24,6 +24,4 @@ galerie-09.jpg
 galerie-10.jpg
 galerie-11.jpg
 galerie-12.jpg
-https://vimeo.com/1225865137?fl=ip&fe=ec
-https://vimeo.com/1225865136?fl=ip&fe=ec
-https://vimeo.com/1225865139?fl=ip&fe=ec
+https://vimeo.com/1225865137?share=copy&fl=sv&fe=ci
