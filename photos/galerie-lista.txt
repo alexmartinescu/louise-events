@@ -30,4 +30,6 @@ galerie-06.jpg
 galerie-07.jpg
 galerie-08.jpg
 galerie-09.jpg
-video-vertical:video4.mp4
+galerie-10.jpg
+galerie-11.jpg
+galerie-12.jpg
