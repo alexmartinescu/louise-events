@@ -28,5 +28,4 @@ galerie-04.jpg
 galerie-05.jpg
 galerie-06.jpg
 galerie-07.jpg
-galerie-08.jpg
 video-vertical:video4.mp4
