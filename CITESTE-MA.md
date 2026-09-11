@@ -64,11 +64,37 @@ Pagina Galerie nu are casete fixe. Citește lista din
 2. Adaugă o linie nouă cu numele ei în `photos/galerie-lista.txt`
 3. Salvează — apare automat, pe RO și EN deopotrivă
 
-**Video nou:** adaugă o linie care începe cu `video:`, urmată de link
-YouTube sau Vimeo:
+**Video de pe YouTube/Vimeo:** adaugă o linie care începe cu `video:`,
+urmată de link-ul întreg:
 ```
 video:https://www.youtube.com/watch?v=xxxxxxxxxxx
 video:https://vimeo.com/123456789
+```
+
+**Video încărcat direct** (fișierul video chiar pe site, fără Vimeo/YouTube):
+1. Pune fișierul video (`.mp4`, recomandat) direct în folderul `photos/`
+2. Adaugă o linie cu `video:` urmat de **numele fișierului** (nu un link):
+```
+video:nunta-ana-mihai.mp4
+```
+Apare cu propriile butoane de redare (play, sunet, fullscreen), fără
+să mai depinzi de Vimeo sau YouTube.
+
+⚠️ De reținut la încărcare directă:
+- **GitHub refuză fișiere peste 100 MB** — dacă videoul e mai mare,
+  comprimă-l înainte (ex: **HandBrake**, gratuit, sau orice compresor
+  online) sau păstrează varianta cu Vimeo pentru clipuri lungi
+- Fișierele video mari fac site-ul mai greu de încărcat pentru
+  vizitatori — pentru clipuri scurte (sub 30-60 de secunde) e ok,
+  pentru ceva mai lung, Vimeo tot rămâne alegerea mai bună
+
+**Video filmat pe verticală** (telefon, orientare portret) — dacă un
+video arăta foarte mic/tăiat ciudat, foloseai probabil un video
+vertical într-o casetă gândită pentru orizontal. Rezolvare: folosește
+`video-vertical:` în loc de `video:`, atât la link cât și la fișier local:
+```
+video-vertical:nunta-ana-mihai.mp4
+video-vertical:https://vimeo.com/123456789
 ```
 
 Ca să scoți ceva din galerie, ștergi linia respectivă din listă.

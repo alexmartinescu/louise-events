@@ -9,14 +9,39 @@ document.addEventListener('DOMContentLoaded', function () {
   // Cycle of shapes for visual variety, same look as before
   var ratios = ['ratio-square', 'ratio-tall', 'ratio-square', 'ratio-wide'];
 
+  var LOCAL_VIDEO_EXT = /\.(mp4|webm|mov|ogg)$/i;
+
   // Turns a YouTube or Vimeo page URL into an embeddable player URL.
-  // Falls back to the URL as-is if it's already an embed link.
   function toEmbedUrl(url) {
     var yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{11})/);
     if (yt) return 'https://www.youtube.com/embed/' + yt[1];
     var vimeo = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
     if (vimeo) return 'https://player.vimeo.com/video/' + vimeo[1];
     return url;
+  }
+
+  function buildEmbedVideo(url, ratioClass) {
+    var wrap = document.createElement('div');
+    wrap.className = 'video-embed ' + ratioClass;
+    var iframe = document.createElement('iframe');
+    iframe.src = toEmbedUrl(url);
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.loading = 'lazy';
+    wrap.appendChild(iframe);
+    return wrap;
+  }
+
+  function buildLocalVideo(filename, ratioClass) {
+    var wrap = document.createElement('div');
+    wrap.className = 'video-embed ' + ratioClass;
+    var video = document.createElement('video');
+    video.src = base + filename;
+    video.controls = true;
+    video.preload = 'metadata';
+    video.playsInline = true;
+    wrap.appendChild(video);
+    return wrap;
   }
 
   fetch(listUrl)
@@ -36,17 +61,27 @@ document.addEventListener('DOMContentLoaded', function () {
       var ratioIndex = 0;
 
       lines.forEach(function (line) {
-        if (line.toLowerCase().indexOf('video:') === 0) {
-          var url = line.slice(6).trim();
-          var wrap = document.createElement('div');
-          wrap.className = 'video-embed ratio-wide';
-          var iframe = document.createElement('iframe');
-          iframe.src = toEmbedUrl(url);
-          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-          iframe.setAttribute('allowfullscreen', '');
-          iframe.loading = 'lazy';
-          wrap.appendChild(iframe);
-          container.appendChild(wrap);
+        var lower = line.toLowerCase();
+        var isVideo = false;
+        var isVertical = false;
+        var value = line;
+
+        if (lower.indexOf('video-vertical:') === 0) {
+          isVideo = true;
+          isVertical = true;
+          value = line.slice('video-vertical:'.length).trim();
+        } else if (lower.indexOf('video:') === 0) {
+          isVideo = true;
+          value = line.slice('video:'.length).trim();
+        }
+
+        if (isVideo) {
+          var ratioClass = isVertical ? 'ratio-vertical' : 'ratio-wide';
+          var isLocalFile = /^https?:\/\//i.test(value) === false;
+          var el = (isLocalFile && LOCAL_VIDEO_EXT.test(value))
+            ? buildLocalVideo(value, ratioClass)
+            : buildEmbedVideo(value, ratioClass);
+          container.appendChild(el);
         } else {
           var div = document.createElement('div');
           div.className = 'photo ' + ratios[ratioIndex % ratios.length];

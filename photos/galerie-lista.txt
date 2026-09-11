@@ -3,10 +3,19 @@
 # POZE: o poza pe linie, exact numele fisierului din folderul photos/
 #   ex: galerie-13.jpg
 #
-# VIDEOURI: scrie "video:" urmat de link-ul YouTube sau Vimeo
+# VIDEO DE PE YOUTUBE/VIMEO: scrie "video:" urmat de link-ul intreg
 #   ex: video:https://www.youtube.com/watch?v=xxxxxxxxxxx
-#   ex: video:https://youtu.be/xxxxxxxxxxx
 #   ex: video:https://vimeo.com/123456789
+#
+# VIDEO INCARCAT DIRECT (fisier .mp4 pus chiar in folderul photos/):
+#   ex: video:nunta-ana-mihai.mp4
+#   (aceeasi sintaxa "video:", dar in loc de link pui numele fisierului)
+#
+# VIDEO FILMAT PE VERTICALA (telefon, orientare portret):
+#   foloseste "video-vertical:" in loc de "video:", ca sa nu apara
+#   micsorat/taiat intr-o caseta gandita pentru orizontal:
+#   ex: video-vertical:nunta-ana-mihai.mp4
+#   ex: video-vertical:https://vimeo.com/123456789
 #
 # Adauga o linie noua pentru fiecare poza/video in plus, oricate vrei.
 # Sterge o linie ca sa scoti ceva din galerie.
@@ -24,4 +33,4 @@ galerie-09.jpg
 galerie-10.jpg
 galerie-11.jpg
 galerie-12.jpg
-video:https://vimeo.com/1225865137?share=copy&fl=sv&fe=ci
+video-vertical:video4.mp4
