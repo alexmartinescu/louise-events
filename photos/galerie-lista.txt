@@ -1,7 +1,15 @@
-# Lista de fotografii pentru pagina Galerie
-# O poza pe linie, exact numele fisierului din folderul photos/
-# Adauga o linie noua pentru fiecare poza in plus, oricate vrei.
-# Sterge o linie ca sa scoti o poza din galerie.
+# Lista de fotografii SI VIDEOURI pentru pagina Galerie
+#
+# POZE: o poza pe linie, exact numele fisierului din folderul photos/
+#   ex: galerie-13.jpg
+#
+# VIDEOURI: scrie "video:" urmat de link-ul YouTube sau Vimeo
+#   ex: video:https://www.youtube.com/watch?v=xxxxxxxxxxx
+#   ex: video:https://youtu.be/xxxxxxxxxxx
+#   ex: video:https://vimeo.com/123456789
+#
+# Adauga o linie noua pentru fiecare poza/video in plus, oricate vrei.
+# Sterge o linie ca sa scoti ceva din galerie.
 # Liniile care incep cu # sunt ignorate (comentarii, ca aceasta).
 
 galerie-01.jpg

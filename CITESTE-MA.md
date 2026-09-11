@@ -32,6 +32,35 @@ extensia **Live Server** din VS Code. Dacă deschizi pagina direct și
 lista nu se încarcă, rămân vizibile cele 12 poze implicite din HTML,
 ca variantă de rezervă.
 
+### Video — în Galerie și pe Acasă
+
+**În Galerie:** exact ca la poze, dar în `photos/galerie-lista.txt` scrii
+o linie care începe cu `video:`, urmată de link-ul de YouTube sau Vimeo:
+```
+video:https://www.youtube.com/watch?v=xxxxxxxxxxx
+video:https://vimeo.com/123456789
+```
+Apare automat în galerie, în mijlocul pozelor, la fel ca oricare altă
+intrare din listă.
+
+**Pe Acasă** (unde sunt caseta mare de sus, cele 3 poze mici, sau
+poza din dreptul „Despre mine"): acolo pozele sunt fixe, nu dintr-o
+listă, deci înlocuirea se face manual, o singură dată, în VS Code.
+Găsești caseta pe care vrei s-o schimbi (arată cam așa):
+```html
+<div class="photo ratio-hero" data-slot="hero-acasa.jpg" style="background-image:url('photos/hero-acasa.jpg'), var(--fallback-grad)"></div>
+```
+Și o înlocuiești cu (păstrezi clasa `ratio-...` originală, ca
+dimensiunea să rămână la fel — aici era `ratio-hero`):
+```html
+<div class="video-embed ratio-hero">
+  <iframe src="https://www.youtube.com/embed/xxxxxxxxxxx" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+```
+Ai nevoie de link-ul de tip **embed**: pe YouTube, apeși Share →
+Embed, și de acolo iei doar codul `xxxxxxxxxxx` din adresă (partea de
+după `/embed/`).
+
 ### Restul paginilor (Acasă, Despre mine, Ceremonii, Pachete, Contact)
 Fiecare casetă de imagine are deja un nume de fișier așteptat, vizibil
 și ca etichetă mică peste imagine (ex: `hero-acasa.jpg`). Salvează
