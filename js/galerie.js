@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var base = window.GALERIE_BASE || 'photos/';
   var listUrl = base + 'galerie-lista.txt';
 
-  // Cycle of shapes for visual variety, same look as before
-  var ratios = ['ratio-square', 'ratio-tall', 'ratio-square', 'ratio-wide'];
+  // All gallery photos use the same uniform shape, so the grid lines up evenly
+  var ratios = ['ratio-square'];
 
   var LOCAL_VIDEO_EXT = /\.(mp4|webm|mov|ogg)$/i;
 

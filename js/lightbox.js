@@ -19,10 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  document.querySelectorAll('[data-full]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      var src = el.getAttribute('data-full');
-      if (src) openLightbox(src);
-    });
+  // Event delegation on the whole page: this catches clicks on
+  // [data-full] elements even if they're added to the page later
+  // (e.g. the Galerie photos, which load dynamically via JavaScript
+  // after this script has already run).
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-full]');
+    if (el) openLightbox(el.getAttribute('data-full'));
   });
 });
